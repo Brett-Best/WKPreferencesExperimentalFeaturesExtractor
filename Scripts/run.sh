@@ -5,7 +5,8 @@ set -euo pipefail
 
 swift build -c release
 
-BUILT_EXECUTABLE=.build/x86_64-apple-macosx/release/WKPreferencesExperimentalFeaturesExtractor
+UNAME_ARCH=uname -m
+BUILT_EXECUTABLE=.build/"$UNAME_ARCH"-apple-macosx/release/WKPreferencesExperimentalFeaturesExtractor
 
 echo "# Safari Beta:"
 DYLD_FRAMEWORK_PATH=/Library/Apple/System/Library/StagedFrameworks/Safari/ "$BUILT_EXECUTABLE"
