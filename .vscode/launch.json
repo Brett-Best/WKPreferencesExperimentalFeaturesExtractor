@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug WKPreferencesExperimentalFeaturesExtractor",
+            "program": "${workspaceFolder:WKPreferencesExperimentalFeaturesExtractor}/.build/debug/WKPreferencesExperimentalFeaturesExtractor",
+            "args": [],
+            "cwd": "${workspaceFolder:WKPreferencesExperimentalFeaturesExtractor}",
+            "preLaunchTask": "swift: Build Debug WKPreferencesExperimentalFeaturesExtractor"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release WKPreferencesExperimentalFeaturesExtractor",
+            "program": "${workspaceFolder:WKPreferencesExperimentalFeaturesExtractor}/.build/release/WKPreferencesExperimentalFeaturesExtractor",
+            "args": [],
+            "cwd": "${workspaceFolder:WKPreferencesExperimentalFeaturesExtractor}",
+            "preLaunchTask": "swift: Build Release WKPreferencesExperimentalFeaturesExtractor"
+        }
+    ]
+}

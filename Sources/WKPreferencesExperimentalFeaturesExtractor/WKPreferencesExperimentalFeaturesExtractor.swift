@@ -3,6 +3,7 @@ import WebKit
 @main
 public struct WKPreferencesExperimentalFeaturesExtractor {
   static let dyldFrameworkPath = ProcessInfo.processInfo.environment["DYLD_FRAMEWORK_PATH"]
+  static let safariFrameworksPath = "/Applications/Safari.app/Contents/Frameworks/"
   static let safariBetaFrameworksPath = "/Library/Apple/System/Library/StagedFrameworks/Safari/"
   static let safariTechnologyPreviewFrameworksPath = "/Applications/Safari Technology Preview.app/Contents/Frameworks/"
 
@@ -10,14 +11,15 @@ public struct WKPreferencesExperimentalFeaturesExtractor {
     let defaultsDomain: String
 
     switch dyldFrameworkPath {
-      case safariBetaFrameworksPath: defaultsDomain = "com.apple.Safari"
+      case safariFrameworksPath, safariBetaFrameworksPath: defaultsDomain = "com.apple.Safari"
       case safariTechnologyPreviewFrameworksPath: defaultsDomain = "com.apple.SafariTechnologyPreview"
       default:
       print(
         """
         Expected `DYLD_FRAMEWORK_PATH` to be set to:
-        1. Safari Beta: \(safariBetaFrameworksPath)
-        2. Safari Technology Preview: \(safariTechnologyPreviewFrameworksPath)
+        1. Safari: \(safariFrameworksPath)
+        2. Safari Beta: \(safariBetaFrameworksPath)
+        3. Safari Technology Preview: \(safariTechnologyPreviewFrameworksPath)
         """
       )
       exit(1)
